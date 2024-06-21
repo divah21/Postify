@@ -1,0 +1,26 @@
+<main class="main w-full h-screen flex">
+    <div class="px-4 py-5 w-full flex-col gap-3 mt-4">
+        <h1 class="text-2xl text-slate-900 font-extrabold text-[30px] mt-3">Edit posts</h1>
+      
+        <div *ngFor="let post of posts" class="flex flex-col w-full border-[2px] px-4 py-4 rounded-xl shadow hover:transition ease-in-out bg-slate-500 text-white font-medium text-[20px] mt-4">
+          <div *ngIf="editingPostId === post.id" class="flex flex-col gap-3 w-2/4">
+            <input type="text" [(ngModel)]="editedPost.title" placeholder="Title" class="mb-2 px-2 py-1 text-black text-lg font-light  border rounded" />
+            <textarea [(ngModel)]="editedPost.content" placeholder="Content" class="mb-2 px-2 py-1 border text-black text-lg font-light rounded"></textarea>
+            <label>
+              <input type="checkbox" [(ngModel)]="editedPost.published" /> Published
+            </label>
+            <button (click)="savePost(post.id)" class="ml-2 px-4 py-1 bg-blue-500 text-white rounded">Save</button>
+            <button (click)="cancelEdit()" class="ml-2 px-4 py-1 bg-gray-500 text-white rounded">Cancel</button>
+          </div>
+          <div *ngIf="editingPostId !== post.id">
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.content }}</p>
+            <p>Published: {{ post.published ? 'Yes' : 'No' }}</p>
+            <p>Votes: {{ post.votes }}</p>
+            <button (click)="editPost(post)" class="ml-2 px-4 py-1 bg-blue-700 text-white rounded">Edit</button>
+            <button (click)="deletePost(post.id)" class="ml-2 px-4 py-1 bg-red-700 text-white rounded">Delete</button>
+          </div>
+        </div>
+      </div>
+
+</main>

@@ -1,0 +1,45 @@
+<main class="main w-full h-screen flex">
+    <div class="flex mt-[60px] max-sm:justify-center items-center flex-col w-full">
+      <h1 class="max-sm:text-[28px] font-extrabold text-[40px] bg-gradient-to-r from-blue-900 to-green-900 inline-block text-transparent bg-clip-text py-6">
+        Create A Post Here
+      </h1>
+      <form [formGroup]="createPostForm" (ngSubmit)="onSubmit()" class="max-sm:w-[300px] max-md:w-[400px] lg:w-1/2 border-[2px] px-6 py-7 rounded-xl shadow-2xl hover:transition ease-in-out bg-gray-400">
+        <div class="mb-5">
+          <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
+          <input
+            type="text"
+            id="title"
+            formControlName="title"
+            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+            required
+          />
+        </div>
+        <label for="content" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Post description</label>
+        <textarea
+          id="content"
+          formControlName="content"
+          rows="4"
+          class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="Leave a comment..."
+          required
+        ></textarea>
+        <div class="flex items-start mt-5 mb-5">
+          <div class="flex items-center h-5">
+            <input
+              id="published"
+              type="checkbox"
+              formControlName="published"
+              class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
+            />
+          </div>
+          <label for="published" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Publish the Post</label>
+        </div>
+        <div class="flex w-full place-content-end px-5">
+          <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Create Post
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+  

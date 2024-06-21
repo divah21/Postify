@@ -1,0 +1,45 @@
+<main class="main w-full h-screen flex">
+    <div class="px-4 py-5 w-full flex-col gap-3 mt-4">
+      <h1 class=" text-slate-900 font-extrabold text-[40px] mt-3">Hello {{ username }}! Welcome to Postify</h1>
+
+      <div class="mt-4 flex gap-3">
+        <input type="text" [(ngModel)]="searchQuery" placeholder="Search all posts here" class="px-3 py-2 items-center border-2px shadow-lg shadow-gray-400 rounded" />
+        <button (click)="searchPosts()" class="ml-2 px-4 py-1 bg-blue-500 text-white rounded">Search</button>
+      </div>
+
+      <div *ngIf="searchResults.length > 0">
+        <h2 class="text-xl mt-4">Search Results:</h2>
+        <div *ngFor="let post of searchResults" class="flex flex-col w-full border-[2px] px-4 py-4 rounded-xl shadow hover:transition ease-in-out bg-gray-400 text-white font-medium text-[20px] mt-4">
+          <h2>{{ post.title }}</h2>
+          <p>{{ post.content }}</p>
+          <p>Posted by: {{ post.owner.username }} ({{ post.owner.email }})</p>
+          <p>Votes: {{ post.votes }}</p>
+        </div>
+      </div>
+    
+      <div *ngIf="searchResults.length === 0 && searchQuery">
+        <p class="text-red-500 mt-4">No posts found for "{{ searchQuery }}"</p>
+      </div>
+
+      <div *ngFor="let post of posts" class="flex max-sm:flex-col w-full border-[2px] px-4 py-4 rounded-xl shadow hover:transition ease-in-out bg-slate-500 text-white font-medium text-[20px] mt-4 gap-4">
+       
+       <div class="flex flex-col py-2 max-sm:w-full w-3/4">
+        <h2 class="text-[28px] font-medium text-slate-900">{{ post.title }}</h2>
+        <p class="text-[16px] font-light text-white overflow-auto">{{ post.content }}</p>
+       </div>
+
+       <div class="flex flex-col py-3 max-sm:w-full w-1/4 gap-2">
+       <h2 class="text-[20px] font-light text-white">
+        Posted by: {{ post.owner.username }}
+       </h2>
+       <p class="text-[16px] font-normal text-white">Email: {{ post.owner.email }}</p>
+       <p class="text-[16px] font-normal text-white">Votes: {{ post.votes }}</p>
+       <div class="flex gap-2 justify-start items-center">
+        <button (click)="vote(post.id, 'upvote')" class="w-[150px] h-[50px] rounded-lg bg-slate-800 text-white text-[18px] font-medium px-2 py-2">Upvote</button>
+        <button (click)="vote(post.id, 'downvote')" class="w-[150px] h-[50px] rounded-lg bg-slate-800 text-white text-[18px] font-medium px-2 py-2">Downvote</button>
+       </div>
+       </div>
+       
+      </div>
+    </div>
+</main>

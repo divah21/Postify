@@ -1,0 +1,72 @@
+<!-- src/app/signin/signin.component.html -->
+<main class="main pt-[100px] px-4 pb-10">
+  <div class="w-full flex justify-center place-items-center py-11">
+    <form
+      class="w-[400px] mx-auto bg-gray-300 rounded-xl sm:px-8 px-6 py-6"
+      (submit)="onLogin()"
+    >
+      <div class="flex flex-col items-center justify-center pb-2">
+        <h1 class="text-blue-700 font-extrabold text-[40px] py-2">Postify</h1>
+        <h3
+          class="font-bold text-[20px] bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text"
+        >
+          Login to Your Account
+        </h3>
+      </div>
+
+      <div class="mb-5">
+        <label
+          for="username"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >Username</label
+        >
+        <input
+          type="text"
+          id="username"
+          name="username" 
+          [(ngModel)]="username"
+          class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+          placeholder="username"
+          required
+        />
+      </div>
+      <div class="mb-5">
+        <label
+          for="password"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >Password</label
+        >
+        <input
+          type="password"
+          id="password"
+          name="password"
+          [(ngModel)]="password"
+          class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+          required
+        />
+      </div>
+
+      <div>
+        <button
+          type="submit"
+          class="flex w-full justify-center items-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-lg px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
+          Login
+        </button>
+      </div>
+      <div class="flex items-start mt-5 mb-5">
+        <label
+          for="signup"
+          class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          >Don't Have an Account? &nbsp; &nbsp;
+          <a
+            routerLink="/signup"
+            routerLinkActive="active"
+            class="text-blue-600 hover:underline dark:text-blue-500 font-bold text-lg"
+            >Sign up</a
+          ></label
+        >
+      </div>
+    </form>
+  </div>
+</main>
