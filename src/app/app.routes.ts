@@ -3,9 +3,7 @@ import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
-import { TrendingComponent } from './trending/trending.component';
 import { MyPostsComponent } from './my-posts/my-posts.component';
-import { NewPostsComponent } from './new-posts/new-posts.component';
 import { CreatePostsComponent } from './create-posts/create-posts.component';
 import { AuthGuard } from './services/auth.guard';
 

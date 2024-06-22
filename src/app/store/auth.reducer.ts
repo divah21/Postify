@@ -1,4 +1,4 @@
-// src/app/store/reducers/auth.reducer.ts
+
 import { createReducer, on, Action } from '@ngrx/store';
 import { initialUserState, UserState } from '../store/state/user.state';
 import { login, loginSuccess, loginFailure, logout } from '../store/auth.actions';

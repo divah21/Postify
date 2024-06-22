@@ -1,4 +1,4 @@
-// src/app/store/actions/user.actions.ts
+
 import { createAction, props } from '@ngrx/store';
 import { User } from './state/user.state';
 

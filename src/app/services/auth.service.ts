@@ -1,4 +1,4 @@
-// src/app/services/auth.service.ts
+
 import { Injectable } from '@angular/core';
 import axios from 'axios';
 import * as qs from 'qs';
@@ -18,11 +18,10 @@ export class AuthService {
         },
       });
       console.log('Login Response:', response);
-      
-      // Store token in localStorage or any other necessary processing
+
       if (response.data.access_token) {
         localStorage.setItem('token', response.data.access_token);
-        console.log(' Token :' + localStorage.getItem('token'));
+       
       }
 
       return response.data;
